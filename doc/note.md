@@ -80,7 +80,7 @@ $
 [root@cloud]$ yum systemctl start mariadb
 [root@cloud]$ yum systemctl enable mariadb
 
-[root@cloud]$ yum install emacs
+[root@cloud]$ yum install emacs git
 ```
 
 在 CentOS 上，用 yum 命令来安装，升级，删除软件。yum upgrade 升级软件包，yum install 安装某个软件。systemctl 用来对服务进行开启，关闭，重启等操作。常用的有：systemctl start 开启服务，systemctl stop 停止服务，systemctl restart 重启服务，systemctl enable 让服务开机自启。
