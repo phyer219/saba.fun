@@ -267,6 +267,7 @@ chmod 是 change mode单词前缀的组合，用来修改文件的权限。755 �
 MariaDB [(none)]> create user django@localhost identified by '密码';
 MariaDB [(none)]> create database sabafun character set utf8mb4 collateutf8mb4_unicode_ci;
 MariaDB [(none)]> grant all on sabafun.* to django@localhost;
+MariaDB [(none)]> flush privileges;
 MariaDB [(none)]> exit
 ```
 
@@ -1051,6 +1052,16 @@ Quit the server with CONTROL-C.
 参考官方文档连接 Apache https://docs.djangoproject.com/zh-hans/3.0/howto/deployment/wsgi/modwsgi/
 
 根据　https://modwsgi.readthedocs.io/en/develop/　的提示，查看所需要的路径
+
+```
+LoadModule wsgi_module "/root/django/saba.fun/.sabaenv/lib/python3.7/site-packages/mod_wsgi/server/mod_wsgi-py37.cpython-37m-x86_64-linux-gnu.so"
+WSGIPythonHome "/root/django/saba.fun/.sabaenv"
+
+```
+
+
+
+
 
 ```shell
 (.sabafun)[root@cloud]$ mod_wsgi-express module-config
