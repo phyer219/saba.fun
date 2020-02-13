@@ -25,7 +25,7 @@ SECRET_KEY = 'dg6@8p1evr4()3eg*m*xfzuwxnug#-^f71p0x6iu1m%=d=l94u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['saba.fun', '127.0.0.1']
+ALLOWED_HOSTS = ['saba.fun', '127.0.0.1', 'www.saba.fun']
 
 
 # Application definition
