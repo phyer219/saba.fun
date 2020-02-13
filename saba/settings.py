@@ -25,7 +25,7 @@ SECRET_KEY = 'dg6@8p1evr4()3eg*m*xfzuwxnug#-^f71p0x6iu1m%=d=l94u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['saba.fun']
+ALLOWED_HOSTS = ['saba.fun', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # my apps
+    'index',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +127,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
