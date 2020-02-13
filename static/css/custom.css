@@ -1,1 +1,18 @@
 /* your styles go here */
+
+body{
+    font-family: 'Noto Serif SC', serif;
+}
+
+footer.main-footer {
+    background: #0e0e0e;
+    padding: 0 0 0;
+    color: #fff;
+  }
+
+footer.main-footer .copyrights {
+    background: #090909;
+    margin-top: 0;
+    padding: 20px 0;
+    font-size: 0.9em;
+  }
