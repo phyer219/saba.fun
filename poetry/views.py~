@@ -1,0 +1,11 @@
+from django.shortcuts import render
+
+# Create your views here.
+
+from django.http import HttpResponse
+
+from .models import Shijing
+
+def poetry(request):
+    context = {'shijing_list': Shijing.objects.all()}
+    return render(request, 'poetry/poetry.html', context)

@@ -1,0 +1,30 @@
+{% extends "poetry/base.html" %}
+
+
+{% block right %}
+
+<!-- Widget [Tags Cloud Widget]用标签组件列出所有作者-->
+<div class="widget tags">
+    <header>
+        <h3 class="h6">作者索引</h3>
+    </header>
+    <ul class="list-inline">
+        {% for aut in author_list %}
+        <li class="list-inline-item"><a href="{% url 'poetry:ci_aut_id' aut.id %}"
+                class="tag">{{ aut.id }}.{{ aut.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- {% for item in ci_list %} -->
+<!-- <p> -->
+<!--   第{{ item.fixed_id }}篇：{{ item.author }}·{{ item.rhythmic }} -->
+<!-- </p> -->
+<!-- <p> -->
+<!--   {{ item.paragraphs }} -->
+<!-- </p> -->
+<!-- {% endfor %} -->
+
+
+
+{% endblock right %}

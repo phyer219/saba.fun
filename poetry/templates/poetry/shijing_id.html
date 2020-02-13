@@ -1,0 +1,40 @@
+{% extends "poetry/base.html" %}
+
+
+{% block right %}
+
+<main class="post blog-post col-lg-12"> 
+  <div class="container">
+    <div class="post-single">
+      <div class="post-details">
+        <h1>诗经</h1>
+      </div>
+      <div class="post-details">
+        <div class="post-body">
+          <h3>{{ this_shijing.chapter }}·{{ this_shijing.section }}·{{ this_shijing.title }}
+          </h3>
+          <blockquote class="blockquote">
+            {{ this_shijing.content|linebreaksbr }}
+            <footer class="blockquote-footer">{{ this_shijing.chapter }}·{{ this_shijing.section }}·{{ this_shijing.title }}
+              <cite title="Source Title">{{ this_shijing.chapter }}·{{ this_shijing.section }}·{{ this_shijing.title }}</cite>
+            </footer>
+          </blockquote>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Widget [Tags Cloud Widget]用标签组件列出所有诗经-->
+<div class="widget tags">
+  <header>
+      <h3 class="h6">所有</h3>
+  </header>
+  <ul class="list-inline">
+    {% for item in shijing_list %}
+      <li class="list-inline-item"><a href="{% url 'poetry:shijing_id' item.fixed_id %}"
+              class="tag">{{ item.fixed_id }}.{{ item.chapter }}·{{ item.section }}·{{ item.title }}</a></li>
+              {% endfor %}
+  </ul>
+</div>
+
+{% endblock right %}

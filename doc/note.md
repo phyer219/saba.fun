@@ -673,6 +673,18 @@ STATICFILES_DIRS = [
 ]
 ```
 
+## ssl
+
+```shell
+yum install openssl mod_ssl
+```
+
+已经安装了。
+
+```
+#LoadModule ssl_module modules/mod_ssl.so  #删除行首的配置语句注释符号“#”加载mod_ssl.so模块启用SSL服务，Apache默认是不启用该模块的。如果找不到该配置，请重新编译mod_ssl模块。
+```
+
 
 
 # 具体操作过程（仅供参考）

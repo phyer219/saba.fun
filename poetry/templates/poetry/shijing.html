@@ -1,0 +1,44 @@
+{% extends "poetry/base.html" %}
+
+
+{% block right %}
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <!-- Latest Posts -->
+    <main class="post blog-post col-lg-12"> 
+      <div class="container">
+	<div class="post-single">
+
+	  <div class="post-details">
+	    <h1>所有诗经</h1>
+	  </div>
+	  <div class="post-body">
+	    {% for item in shijing_list %}
+
+	    <blockquote class="blockquote">
+	      <p>{{ item.content|linebreaksbr }}</p>
+	      <footer class="blockquote-footer">
+		<a href="{% url 'poetry:shijing_id' item.fixed_id %}">
+		  {{ item.chapter }}·{{ item.section }}·{{ item.title }}
+		</a>
+		<cite title="Source Title">《诗经》305 篇中的第{{ item.fixed_id }}篇</cite>
+	      </footer>
+	    </blockquote>
+	    {% endfor %}
+	  </div>
+	</div>
+      </div>
+  </div>
+  </main>
+
+</div>
+
+
+
+{% endblock right %}

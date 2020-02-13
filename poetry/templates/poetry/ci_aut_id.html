@@ -1,0 +1,32 @@
+{% extends "poetry/base.html" %}
+
+{% block right %}
+<div class="container">
+  <div class="row">
+    <!-- Latest Posts -->
+    <main class="post blog-post col-lg-12"> 
+      <div class="container">
+	<div class="post-single">
+
+	  <div class="post-details">
+	    <h1>{{ this_aut }}的所有词</h1>
+	  </div>
+	  <div class="post-body">
+	    {% for ci in ci_this_aut %}
+	    <h3></h3>
+	    <blockquote class="blockquote">
+	      <p>{{ ci.paragraphs|linebreaksbr }}</p>
+	      <footer class="blockquote-footer">{{ ci.rhythmic }}
+		<cite title="Source Title">{{ ci.tags }}</cite>
+	      </footer>
+	    </blockquote>
+	    {% endfor %}
+	  </div>
+	</div>
+      </div>
+  </div>
+  </main>
+
+</div>
+
+{% endblock right %}
