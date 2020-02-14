@@ -1,8 +1,10 @@
-{% extends "poetry/base.html" %}
+{% extends "index/base_l_r.html" %}
 
+{% block left %}
+{% include "poetry/poetry_left.html" %}
+{% endblock %}
 
 {% block right %}
-
 <main class="post blog-post col-lg-12"> 
   <div class="container">
     <div class="post-single">

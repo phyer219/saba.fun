@@ -1,8 +1,10 @@
-{% extends "poetry/base.html" %}
+{% extends "index/base_l_r.html" %}
 
+{% block left %}
+{% include "poetry/poetry_left.html" %}
+{% endblock %}
 
 {% block right %}
-
 <!-- Widget [Tags Cloud Widget]用标签组件列出所有作者-->
 <div class="widget tags">
     <header>
@@ -15,7 +17,6 @@
         {% endfor %}
     </ul>
 </div>
-
 <!-- {% for item in ci_list %} -->
 <!-- <p> -->
 <!--   第{{ item.fixed_id }}篇：{{ item.author }}·{{ item.rhythmic }} -->
@@ -24,7 +25,4 @@
 <!--   {{ item.paragraphs }} -->
 <!-- </p> -->
 <!-- {% endfor %} -->
-
-
-
 {% endblock right %}

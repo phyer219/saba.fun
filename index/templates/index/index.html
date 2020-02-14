@@ -1,7 +1,6 @@
-{% extends "index/base.html" %}
+{% extends "index/base_index.html" %}
 {% load static %}
-
-{% block index %}
+{% block content %}
 <section style="background: url({% static "img/hero.jpg"%}); background-size: cover; background-position: center center"
     class="hero">
     <div class="container">
@@ -11,4 +10,4 @@
             </div>
         </div>
 </section>
-{% endblock index %}
+{% endblock content %}

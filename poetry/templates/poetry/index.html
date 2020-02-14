@@ -1,12 +1,100 @@
-{% extends "poetry/base.html" %}
+{% extends "index/base_index.html" %}
+{% load static %}
 
+{% block content %}
+ <!-- Intro Section-->
+ <section class="intro">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2 class="h3">古诗词</h2>
+          <p class="text-big">数据来自<a href="https://github.com/chinese-poetry/chinese-poetry">Github上的中华古诗词数据库</a>: 唐宋两朝近一万四千古诗人, 接近5.5万首<strong>唐诗</strong>加26万<strong>宋诗</strong>。两宋时期1564位词人，21050首<strong>词</strong>。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="featured-posts no-padding-top">
+    <div class="container">
+      <!-- Post-->
+      <div class="row d-flex align-items-stretch">
+        <div class="text col-lg-7">
+          <div class="text-inner d-flex align-items-center">
+            <div class="content">
+              <header class="post-header">
+                <div class="category"><a href="#">别名</a><a href="#">《诗三百》</a></div><a href="{% url 'poetry:shijing' %}">
+                  <h2 class="h4">诗经</h2></a>
+              </header>
+              <p>《诗经》是中国最早的诗歌总集，收录自西周初年至春秋中叶（约前11世纪-前6世纪）的诗歌305篇（除此之外还有6篇有题目无内容，即有目无辞，称为笙诗六篇，题目分别是南陔、白华、华黍、由庚、崇丘和由仪）[1]。原本叫《诗》，又称《诗三百》。[2]从汉朝起儒家将其奉为经典，遂也称之谓《诗经》，而正式使用《诗经》一名，应该起于南宋初年[3]。早期诗经版本众多，其中最为著名也是流传至今的，是鲁国毛亨、汉朝毛苌注释的《诗经》，因此该版本又称为《毛诗》。《诗经》中的诗的作者，绝大部分已经无法考证。 </p>
+              <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                  <div class="avatar"><img src="{% static "img/avatar-1.svg" %}" alt="..." class="img-fluid"></div>
+                  <div class="title"><span>简介来自<a href="https://zh.wikipedia.org/wiki/%E8%AF%97%E7%BB%8F">维基百科</a></span></div></a>
+                <div class="date"><i class="icon-clock"></i> 时间</div>
+                <div class="comments"><i class="icon-comment"></i>12</div>
+              </footer>
+            </div>
+          </div>
+        </div>
+        <div class="image col-lg-5"><img src="{% static "img/featured-pic-1.jpg" %}" alt="..."></div>
+      </div>
+      <!-- Post        -->
+      <div class="row d-flex align-items-stretch">
+        <div class="image col-lg-5"><img src="{% static "img/featured-pic-2.jpg" %}" alt="..."></div>
+        <div class="text col-lg-7">
+          <div class="text-inner d-flex align-items-center">
+            <div class="content">
+              <header class="post-header">
+                <div class="category"><a href="#">词人1330家</a><a href="#">词作21116首</a></div><a href="{% url 'poetry:ci' %}">
+                  <h2 class="h4">全宋词</h2></a>
+              </header>
+              <p>《全宋词》，唐圭璋编著，孔凡礼补辑，共收录宋代词人1330家，词作21116首。宋词之辑录最早始于明末毛晋的《宋六十名家词》，到了清代，侯文灿有《十名家词集》，秦恩复有《词学丛书》。1931年﹐赵万里编成《校辑宋金元人词》73卷。1931年唐圭璋在这些基础上着手编纂《全宋词》，广蒐博辑，“宋亡时年满二十者，俱以为宋人”[1]，订补不辍，1937年编成《全宋词》，体例上则参照《全唐诗》，以“帝王”、“宗室”起首，而殿以“释道”、“女流”，并附词人小传。1940年商务印书馆初版。孔凡礼又辑录遗佚，编《全宋词补辑》。 </p>
+              <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                  <div class="avatar"><img src="{% static "img/avatar-1.svg" %}" alt="..." class="img-fluid"></div>
+                  <div class="title"><span>简介来自<a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E5%AE%8B%E8%A9%9E">维基百科</a></span></div></a>
+                <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                <div class="comments"><i class="icon-comment"></i>12</div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Divider Section-->
+  <section style="background: url({% static "img/divider-bg.jpg" %}); background-size: cover; background-position: center bottom" class="divider">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h2>其它诗词正在建设中...</h2><a href="" class="hero-link">...</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- Gallery Section-->
+  <section class="gallery no-padding">    
+    <div class="row">
+      <div class="mix col-lg-3 col-md-3 col-sm-6">
+        <div class="item"><a href="{% static "img/gallery-1.jpg" %}" data-fancybox="gallery" class="image"><img src="{% static "img/gallery-1.jpg" %}" alt="..." class="img-fluid">
+            <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+      </div>
+      <div class="mix col-lg-3 col-md-3 col-sm-6">
+        <div class="item"><a href="{% static "img/gallery-2.jpg" %}" data-fancybox="gallery" class="image"><img src="{% static "img/gallery-2.jpg" %}" alt="..." class="img-fluid">
+            <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+      </div>
+      <div class="mix col-lg-3 col-md-3 col-sm-6">
+        <div class="item"><a href="{% static "img/gallery-3.jpg" %}" data-fancybox="gallery" class="image"><img src="{% static "img/gallery-3.jpg" %}" alt="..." class="img-fluid">
+            <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+      </div>
+      <div class="mix col-lg-3 col-md-3 col-sm-6">
+        <div class="item"><a href="{% static "img/gallery-4.jpg" %}" data-fancybox="gallery" class="image"><img src="{% static "img/gallery-4.jpg" %}" alt="..." class="img-fluid">
+            <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
 
-
-
-
-{% block right %}
-<h1>诗词首页</h1>
-{% endblock right %}
 
 
 
