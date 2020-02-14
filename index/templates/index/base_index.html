@@ -1,0 +1,13 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+{% include "index/head.html" %}
+<body>
+  {% include "index/header.html" %}
+  {% block content %}
+  {% endblock %}
+  {% include "index/footer.html" %}
+  <!-- JavaScript files-->
+{% include "index/javascript.html" %}
+</body>
+</html>
