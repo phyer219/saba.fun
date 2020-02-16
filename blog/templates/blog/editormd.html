@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+{% include "index/head.html" %}
+
+<body>
+    {% include "index/header.html" %}
+
+    <div class="container">
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <h2 class="h3">Editor.md: 在线 markdown 编辑器</h2>
+                <p class="text-big">项目地址<a href="https://pandao.github.io/editor.md/">pandao.github.io/editor.md</a></p>
+                <p><button type="button" class="btn btn-primary" id="append-btn">载入示例</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" id="test-editormd">
+        <textarea style="display:none;">### Settings
+            ```javascript
+            var testEditor = editormd("test-editormd", {
+            autoHeight : true
+            });
+            ```
+        </textarea>
+    </div>
+    {% include "index/footer.html" %}
+    <!-- JavaScript files-->
+    <!-- JavaScript files-->
+    <!-- scipt src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script-->
+    <!-- <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="{% static "editormd/examples/js/jquery.min.js" %}"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "vendor/jquery.cookie/jquery.cookie.js" %}"> </script>
+    <script src="{% static "vendor/@fancyapps/fancybox/jquery.fancybox.min.js" %}"></script>
+    <script src="{% static "js/front.js" %}"></script>
+    <script src="{% static "editormd/editormd.js" %}"></script>
+    <script type="text/javascript">
+        var testEditor;
+        $(function () {
+            testEditor = editormd("test-editormd", {
+                width: "100%",
+                height: 500,
+                path: "{% static "editormd/lib/" %}",
+                htmlDecode      : "style,script,iframe",
+                tex             : true,
+                emoji           : true,
+                taskList        : true,
+                flowChart       : true,
+                sequenceDiagram : true
+            });
+            $("#append-btn").click(function () {
+                $.get("{% static "editormd/examples/test.md" %}", function (md) {
+                    testEditor.appendMarkdown(md);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
