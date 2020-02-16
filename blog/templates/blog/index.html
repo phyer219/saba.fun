@@ -12,7 +12,7 @@
 <main class="post blog-post col-lg-8">
     <div class="container">
         <div class="post-single">
-            <div class="post-thumbnail"><img src="img/blog-post-3.jpeg" alt="..." class="img-fluid"></div>
+            <div class="post-thumbnail"><img src="{% static "img/blog-post-3.jpeg" %}" alt="..." class="img-fluid"></div>
             <div class="post-details">
                 <div class="post-meta d-flex justify-content-between">
                     <div class="category"><a href="#">{{ post.category.name }}</a></div>
@@ -20,7 +20,7 @@
                 <h1>{{ post.title }}<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
                 <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#"
                         class="author d-flex align-items-center flex-wrap">
-                        <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid"></div>
+                        <div class="avatar"><img src="{% static "img/avatar-1.jpg" %}" alt="..." class="img-fluid"></div>
                         <div class="title"><span>ZQW</span></div>
                     </a>
                     <div class="d-flex align-items-center flex-wrap">

@@ -7,3 +7,9 @@ def index(request):
     posts = Post.objects.all()
     context = {'tags': tags, 'posts': posts, 'categories': categories}
     return render(request,'blog/index.html', context)
+def editormd(request):
+    tags = Tag.objects.all()
+    categories = Category.objects.all()
+    posts = Post.objects.all()
+    context = {'tags': tags, 'posts': posts, 'categories': categories}
+    return render(request,'blog/editormd.html', context)
