@@ -4,7 +4,12 @@
 {% include "index/head.html" %}
 
 <body>
+    <!-- 文件的头,如:导航条 -->
     {% include "index/header.html" %}
+
+
+
+
 
     <div class="container">
         <div class="container">
@@ -28,9 +33,41 @@
             ```
         </textarea>
     </div>
+
+
+    
+    <div class="container">
+
+        
+
+        <!-- 文字说明 -->
+        <div class="row">
+            <h3>Markdown转HTML的显示处理, 即：非编辑情况下的HTML预览,HTML Preview(markdown to html)</h3>
+        </div>
+        <!-- 不带编辑器, 只渲染 markdown -->
+        <div id="test-editormd-view">
+        </div>
+        <div id="test-editormd-view2">
+            <textarea id="append-test" style="display:none;">
+                            ###科学公式 TeX(KaTeX)
+                                                
+                            $$E=mc^2$$
+                            
+                            行内的公式$$E=mc^2$$行内的公式，行内的$$E=mc^2$$公式。
+                            
+                            $$\(\sqrt{3x-1}+(1+x)^2\)$$
+                                                
+                            $$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$
+                            
+                            $$X^2 > Y$$
+            </textarea>
+        </div>
+
+    </div>
+
+    <!-- 页角 -->
     {% include "index/footer.html" %}
-    <!-- JavaScript files-->
-    <!-- JavaScript files-->
+    <!-- 网站通用的 JavaScript 文件-->
     <!-- scipt src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script-->
     <!-- <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script> -->
     <script src="{% static "editormd/examples/js/jquery.min.js" %}"></script>
@@ -39,28 +76,89 @@
     <script src="{% static "vendor/jquery.cookie/jquery.cookie.js" %}"> </script>
     <script src="{% static "vendor/@fancyapps/fancybox/jquery.fancybox.min.js" %}"></script>
     <script src="{% static "js/front.js" %}"></script>
+    <!-- editor.md 的 javascript 文件 -->
+    <script src="{% static "editormd/lib/marked.min.js" %}"></script>
+    <script src="{% static "editormd/lib/prettify.min.js" %}"></script>
+    <script src="{% static "editormd/lib/raphael.min.js" %}"></script>
+    <script src="{% static "editormd/lib/underscore.min.js" %}"></script>
+    <script src="{% static "editormd/lib/sequence-diagram.min.js" %}"></script>
+    <script src="{% static "editormd/lib/flowchart.min.js" %}"></script>
+    <script src="{% static "editormd/lib/jquery.flowchart.min.js" %}"></script>
     <script src="{% static "editormd/editormd.js" %}"></script>
+
+    <!-- 带编辑器的 javascript 角本-->
     <script type="text/javascript">
-        var testEditor;
-        $(function () {
-            testEditor = editormd("test-editormd", {
-                width: "100%",
-                height: 500,
-                path: "{% static "editormd/lib/" %}",
-                htmlDecode      : "style,script,iframe",
-                tex             : true,
-                emoji           : true,
-                taskList        : true,
-                flowChart       : true,
-                sequenceDiagram : true
-            });
-            $("#append-btn").click(function () {
-                $.get("{% static "editormd/examples/test.md" %}", function (md) {
-                    testEditor.appendMarkdown(md);
-                });
-            });
+              var testEditor;
+        /*
+        实现文档就绪后执行 jQuery :
+        $(function(){
+           // 开始写 jQuery 代码...
         });
+        */
+              $(function() {
+                  testEditor = editormd("test-editormd", {
+                      width           : "100%",
+                      height          : 600,
+                      path            : "{% static "editormd/lib/" %}",
+                      htmlDecode      : "style,script,iframe", 
+                      tex             : true,
+                      emoji           : true,
+                      taskList        : true,
+                      flowChart       : true, 
+                      sequenceDiagram : true
+                  }); // 给 testEditor 赋值为一个 editormd
+                  // jQuery #id 选择器通过 HTML 元素的 id 属性选取指定的元素。
+              // 请求 ./test.md , 请求成功后执行 function(md).
+              // md是请求的结果.
+              // 请求得到的 md 文件, 给appedMa...
+                  $("#append-btn").click(function(){
+                      $.get("{% static "editormd/examples/test.md" %}", function(md){
+                          testEditor.appendMarkdown(md);
+                      });
+                  });
+              });
+    </script>
+    <!-- 只渲染的 javascript 角本 --> 
+    <script type="text/javascript">
+              $(function() {
+                  var testEditormdView, testEditormdView2;
+                  
+                  $.get("{% static "editormd/examples/test.md" %}", function(markdown) {
+                      
+                      testEditormdView = editormd.markdownToHTML("test-editormd-view", {
+                          markdown        : markdown ,//+ "\r\n" + $("#append-test").text(),
+                          //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
+                          htmlDecode      : "style,script,iframe",  // you can filter tags decode
+                          //toc             : false,
+                          tocm            : true,    // Using [TOCM]
+                          //tocContainer    : "#custom-toc-container", // 自定义 ToC 容器层
+                          //gfm             : false,
+                          //tocDropdown     : true,
+                          // markdownSourceCode : true, // 是否保留 Markdown 源码，即是否删除保存源码的 Textarea 标签
+                          emoji           : true,
+                          taskList        : true,
+                          tex             : true,  // 默认不解析
+                          flowChart       : true,  // 默认不解析
+                          sequenceDiagram : true,  // 默认不解析
+                      });
+                      
+                      //console.log("返回一个 jQuery 实例 =>", testEditormdView);
+                      
+                      // 获取Markdown源码
+                      //console.log(testEditormdView.getMarkdown());
+                      
+                      //alert(testEditormdView.getMarkdown());
+                  });
+                      
+                  testEditormdView2 = editormd.markdownToHTML("test-editormd-view2", {
+                      htmlDecode      : "style,script,iframe",  // you can filter tags decode
+                      emoji           : true,
+                      taskList        : true,
+                      tex             : true,  // 默认不解析
+                      flowChart       : true,  // 默认不解析
+                      sequenceDiagram : true,  // 默认不解析
+                  });
+              });
     </script>
 </body>
-
 </html>
