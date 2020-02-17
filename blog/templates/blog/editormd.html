@@ -49,17 +49,19 @@
         </div>
         <div id="test-editormd-view2">
             <textarea id="append-test" style="display:none;">
-                            ###科学公式 TeX(KaTeX)
-                                                
-                            $$E=mc^2$$
-                            
-                            行内的公式$$E=mc^2$$行内的公式，行内的$$E=mc^2$$公式。
-                            
-                            $$\(\sqrt{3x-1}+(1+x)^2\)$$
-                                                
-                            $$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$
-                            
-                            $$X^2 > Y$$
+### 从字符渲染
+                    
+$$E=mc^2$$
+
+行内的公式$$E=mc^2$$行内的公式，行内的$$E=mc^2$$公式。
+
+$$\(\sqrt{3x-1}+(1+x)^2\)$$
+                    
+$$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$
+
+$$X^2 > Y$$
+
+### 从字符串渲染结束
             </textarea>
         </div>
 
@@ -123,7 +125,7 @@
               $(function() {
                   var testEditormdView, testEditormdView2;
                   
-                  $.get("{% static "editormd/examples/test.md" %}", function(markdown) {
+                  $.get("{% static "editormd/examples/test2.md" %}", function(markdown) {
                       
                       testEditormdView = editormd.markdownToHTML("test-editormd-view", {
                           markdown        : markdown ,//+ "\r\n" + $("#append-test").text(),
